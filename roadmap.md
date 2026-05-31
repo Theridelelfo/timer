@@ -85,7 +85,7 @@ Perché:
 
 ---
 
-## 🔍 STEP 3 — Qualità codice (ESLint)
+## ✅🔍 STEP 3 — Qualità codice (ESLint)
 
 Obiettivo:
 Evitare errori e mantenere codice pulito.
