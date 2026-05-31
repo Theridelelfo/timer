@@ -20,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/Theridelelfo/timer/issues"
   },
-  "homepage": "https://github.com/Theridelelfo/timer#readme"
+  "homepage": "https://github.com/Theridelelfo/timer#readme",
+  "devDependencies": {
+    "eslint": "^10.4.1"
+  }
 }
