@@ -8,7 +8,7 @@
   },
   
 "scripts": {
-  "test": "echo \"Error: no test specified\" && exit 1",
+  "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
   "lint": "eslint ."
 },
   "repository": {
@@ -19,13 +19,18 @@
   "author": "",
   "license": "MIT",
   "type": "module",
-  "bugs": {
+  
+"jest": {
+  "testEnvironment": "node"
+ },
+"bugs": {
     "url": "https://github.com/Theridelelfo/timer/issues"
   },
   "homepage": "https://github.com/Theridelelfo/timer#readme",
   "devDependencies": {
     "@eslint/js": "^10.0.1",
     "eslint": "^10.4.1",
-    "globals": "^17.6.0"
+    "globals": "^17.6.0",
+    "jest": "^30.4.2"
   }
 }
