@@ -69,7 +69,7 @@ Perché:
 
 ---
 
-## 🔧 STEP 2 — Inizializzazione ambiente Node
+## ✅🔧 STEP 2 — Inizializzazione ambiente Node
 
 Obiettivo:
 Aggiungere toolchain per test, lint e automazione.
