@@ -6,9 +6,11 @@
   "directories": {
     "test": "test"
   },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  
+"scripts": {
+  "test": "echo \"Error: no test specified\" && exit 1",
+  "lint": "eslint ."
+},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Theridelelfo/timer.git"
@@ -16,7 +18,7 @@
   "keywords": [],
   "author": "",
   "license": "MIT",
-  "type": "commonjs",
+  "type": "module",
   "bugs": {
     "url": "https://github.com/Theridelelfo/timer/issues"
   },
