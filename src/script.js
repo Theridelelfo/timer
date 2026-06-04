@@ -1,10 +1,3 @@
-import { createCountdown } from "./timer.js";
-
-const display = document.getElementById("display");
-const button = document.getElementById("start");
-
-let intervalId = null;
-
 button.addEventListener("click", () => {
   // se NON attivo → start
   if (intervalId === null) {
@@ -18,12 +11,17 @@ button.addEventListener("click", () => {
       () => {
         display.textContent = "Done!";
         intervalId = null;
+        button.textContent = "Start"; // reset finale
       }
     );
+
+    button.textContent = "Stop"; // cambia subito
   } 
   // se attivo → stop
   else {
     clearInterval(intervalId);
     intervalId = null;
+
+    button.textContent = "Start"; // torna a Start
   }
 });
