@@ -1,23 +1,49 @@
 # 🧱 Roadmap degli Step
 
----
-
 ## ✅ STEP 0 — Repository base (COMPLETATO)
 
 Obiettivo:
-- Creare il repository GitHub
+Inizializzare il repository remoto con i file di configurazione essenziali e l'ambiente di sviluppo pronto.
 
 Checklist:
-- [x] README.md
-- [x] LICENSE
-- [x] .gitignore (Node consigliato)
+- [x] Creazione repository su GitHub
+- [x] Creazione roadmap.md
+- [x] README.md (contenente Obiettivo e Principi Guida)
+- [x] LICENSE (MIT)
+- [ ] .gitignore (specifico per Node.js) contenente 'node_modules/'
+- [ ] Attivazione dell'ambiente GitHub Codespaces
+
+Perché:
+- Il .gitignore protegge il repository dal caricamento accidentale di file di log o dipendenze pesanti (`node_modules`).
 
 ---
 
-## ✅ STEP 1 — Struttura progetto
+## 🔧 STEP 1 — Struttura progetto
 
 Obiettivo:
-Definire un'organizzazione chiara del codice.
+Definire l'alberatura delle cartelle sul repository sfruttando file segnaposto.
+
+Struttura da creare:
+├── .github/,
+│   └── workflows/.
+│       └── todo.md;
+├── src/:
+│   └── todo.md
+└── test/
+    └── todo.md
+
+Checklist:
+- [ ] Creare la cartella `src/` con all'interno un file `todo.md`
+- [ ] Creare la cartella `test/` con all'interno un file `todo.md`
+- [ ] Creare la cartella `.github/workflows/` con all'interno un file `todo.md`
+
+Perché:
+- Git traccia solo i file, non le cartelle. I file `todo.md` permettono di fare il push dell'architettura prima di scrivere il codice applicativo.
+- Posticipa la creazione di `package.json` al momento della reale inizializzazione dell'ambiente Node (Step 2).
+ 
+
+---
+
 
 Struttura:
 
