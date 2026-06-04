@@ -101,7 +101,7 @@ Perché:
 
 ---
 
-## 🧪 STEP 4 — Testing (Jest)
+## ✅🧪 STEP 4 — Testing (Jest)
 
 Obiettivo:
 Testare la logica del timer.
