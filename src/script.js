@@ -1,5 +1,12 @@
+import { createCountdown } from "./timer.js";
+
+const display = document.getElementById("display");
+const button = document.getElementById("start");
+
+let intervalId = null;
+
 button.addEventListener("click", () => {
-  // se NON attivo → start
+  // START
   if (intervalId === null) {
     const startValue = parseInt(display.textContent, 10);
 
@@ -11,17 +18,17 @@ button.addEventListener("click", () => {
       () => {
         display.textContent = "Done!";
         intervalId = null;
-        button.textContent = "Start"; // reset finale
+        button.textContent = "Start";
       }
     );
 
-    button.textContent = "Stop"; // cambia subito
+    button.textContent = "Stop";
   } 
-  // se attivo → stop
+  // STOP
   else {
     clearInterval(intervalId);
     intervalId = null;
 
-    button.textContent = "Start"; // torna a Start
+    button.textContent = "Start";
   }
 });
