@@ -1,17 +1,18 @@
+import { createCountdown } from "./timer.js";
+
 const display = document.getElementById("display");
 const button = document.getElementById("start");
 
 button.addEventListener("click", () => {
-  let time = parseInt(display.textContent, 10);
+  const startValue = parseInt(display.textContent, 10);
 
-  const interval = setInterval(() => {
-    time--;
-
-    display.textContent = time;
-
-    if (time <= 0) {
-      clearInterval(interval);
+  createCountdown(
+    startValue,
+    (time) => {
+      display.textContent = time;
+    },
+    () => {
       display.textContent = "Done!";
     }
-  }, 1000);
+  );
 });
