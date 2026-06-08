@@ -10,8 +10,8 @@ Checklist:
 - [x] Creazione roadmap.md
 - [x] README.md (contenente Obiettivo e Principi Guida)
 - [x] LICENSE (MIT)
-- [ ] .gitignore (specifico per Node.js) contenente 'node_modules/'
-- [ ] Attivazione dell'ambiente GitHub Codespaces
+- [x] .gitignore contenente anche 'node_modules/'  (specifico per Node.js)
+- [x] Attivazione dell'ambiente GitHub Codespaces
 
 Perché:
 - Il .gitignore protegge il repository dal caricamento accidentale di file di log o dipendenze pesanti (`node_modules`).
@@ -24,26 +24,44 @@ Obiettivo:
 Definire l'alberatura delle cartelle sul repository sfruttando file segnaposto.
 
 Struttura da creare:
-├── .github/,
-│   └── workflows/.
-│       └── todo.md;
-├── src/:
+```
+├── .github/
+│   └── workflows/
+│       └── todo.md
+├── src/
 │   └── todo.md
 └── test/
     └── todo.md
+```
 
 Checklist:
-- [ ] Creare la cartella `src/` con all'interno un file `todo.md`
-- [ ] Creare la cartella `test/` con all'interno un file `todo.md`
-- [ ] Creare la cartella `.github/workflows/` con all'interno un file `todo.md`
+- [x] Creare la cartella `src/` con all'interno un file `todo.md`
+- [x] Creare la cartella `test/` con all'interno un file `todo.md`
+- [x] Creare la cartella `.github/workflows/` con all'interno un file `todo.md`
 
 Perché:
 - Git traccia solo i file, non le cartelle. I file `todo.md` permettono di fare il push dell'architettura prima di scrivere il codice applicativo.
-- Posticipa la creazione di `package.json` al momento della reale inizializzazione dell'ambiente Node (Step 2).
- 
+- Separazione responsabilità
+- Facilita testing e manutenzione
+- Base per CI/CD
 
 ---
 
+## 🔧 STEP 2 — Inizializzazione ambiente Node
+
+### 📌 Bussola di Transizione (Stato di Avanzamento dell'Alberatura)
+
+Tracciamento dei file da collocare e dei relativi passaggi:
+
+[ ] package.json ➔ Da creare in questa fase (Step 2) tramite inizializzazione npm.
+[ ] Configurazione Linter ➔ Da creare nella fase Qualità Codice (Step 3).
+[ ] test/timer.test.js ➔ Da creare nella fase di Testing (Step 4).
+
+Azione di Archiviazione: Il file test/todo.md originale verrà spostato in una nuova cartella d'archivio (docs/archive/test_todo_step1.md) invece di essere sovrascritto o eliminato.
+
+[ ] File Applicativi (index.html, style.css, script.js) ➔ Da creare nella fase applicativa reale (Step 9).
+
+Azione di Archiviazione: Il file src/todo.md originale verrà spostato in docs/archive/src_todo_step1.md.
 
 Struttura:
 
@@ -59,14 +77,18 @@ test/
 
 package.json
 
-Perché:
-- Separazione responsabilità
-- Facilita testing e manutenzione
-- Base per CI/CD
-
 ---
+Obiettivo dello Step 2:
+Configurare l'ambiente runtime locale (Node.js) e preparare il manifesto delle dipendenze del progetto.
 
-## 🔧 STEP 2 — Inizializzazione ambiente Node
+Checklist dello Step 2:
+
+[ ] Creare la cartella di memoria storica docs/archive/ per conservare i nostri progressi.
+
+[ ] Eseguire l'inizializzazione del gestore di pacchetti (npm init).
+
+[ ] Configurare gli script di avvio base nel file package.json generato.
+
 
 Obiettivo:
 Aggiungere toolchain per test, lint e automazione.
