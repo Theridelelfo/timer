@@ -1,0 +1,19 @@
+# 📦 Dipendenze
+# Con node.js non carichiamo mai le librerie esterne. Verranno scaricate nella CI tramite 'npm install'
+node_modules/
+
+# 🛠️ Tooling e Testing
+# Ignora la cartella di cache che i tool usano per velocizzare le esecuzioni successive
+.npm/         # Cache di Node.js
+.eslintcache  # Cache di ESLint 
+coverage/       # Report di copertura dei test (es. Jest)
+
+# 📊 Log ed Errori
+# Se i processi (in questo caso Node o npm) si bloccano, generano file di log. Non vogliamo che finiscano nel repository
+*.log
+npm-debug.log*
+
+# 🖥️ File di sistema (Opzionale ma consigliato)
+# Ignora i file nascosti che i sistemi operativi creano automaticamente nelle cartelle
+.DS_Store
+Thumbs.db
