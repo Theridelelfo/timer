@@ -224,7 +224,7 @@ Esempi:
 - UI/UX migliori
 - performance
 - nuove funzionalità
-
+- trasferire i todo.md in una directory d'archivio
 ---
 
 # 📊 Obiettivo finale
