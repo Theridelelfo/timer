@@ -18,7 +18,7 @@ Perché:
 
 ---
 
-## 🔧 STEP 1 — Struttura progetto
+## ✅🔧 STEP 1 — Struttura progetto
 
 Obiettivo:
 Definire l'alberatura delle cartelle sul repository sfruttando file segnaposto.
@@ -30,14 +30,17 @@ Struttura da creare:
 │       └── todo.md
 ├── src/
 │   └── todo.md
-└── test/
-    └── todo.md
+├── test/
+│    └── todo.md
+└── doc/archive/
+
 ```
 
 Checklist:
 - [x] Creare la cartella `src/` con all'interno un file `todo.md`
 - [x] Creare la cartella `test/` con all'interno un file `todo.md`
 - [x] Creare la cartella `.github/workflows/` con all'interno un file `todo.md`
+- [x] Creare la cartella di memoria storica `docs/archive/` con all'interno un file `todo.md`.
 
 Perché:
 - Git traccia solo i file, non le cartelle. I file `todo.md` permettono di fare il push dell'architettura prima di scrivere il codice applicativo.
@@ -49,60 +52,49 @@ Perché:
 
 ## 🔧 STEP 2 — Inizializzazione ambiente Node
 
-### 📌 Bussola di Transizione (Stato di Avanzamento dell'Alberatura)
-
-Tracciamento dei file da collocare e dei relativi passaggi:
-
-[ ] package.json ➔ Da creare in questa fase (Step 2) tramite inizializzazione npm.
-[ ] Configurazione Linter ➔ Da creare nella fase Qualità Codice (Step 3).
-[ ] test/timer.test.js ➔ Da creare nella fase di Testing (Step 4).
-
-Azione di Archiviazione: Il file test/todo.md originale verrà spostato in una nuova cartella d'archivio (docs/archive/test_todo_step1.md) invece di essere sovrascritto o eliminato.
-
-[ ] File Applicativi (index.html, style.css, script.js) ➔ Da creare nella fase applicativa reale (Step 9).
-
-Azione di Archiviazione: Il file src/todo.md originale verrà spostato in docs/archive/src_todo_step1.md.
-
-Struttura:
-
-src/
-- index.html
-- style.css
-- script.js
-
-test/
-- timer.test.js
-
-.github/workflows/
-
-package.json
-
----
 Obiettivo dello Step 2:
 Configurare l'ambiente runtime locale (Node.js) e preparare il manifesto delle dipendenze del progetto.
+Aggiungere toolchain per test, lint e automazione.
 
 Checklist dello Step 2:
 
-[ ] Creare la cartella di memoria storica docs/archive/ per conservare i nostri progressi.
+### 📋 Checklist Operativa
 
-[ ] Eseguire l'inizializzazione del gestore di pacchetti (npm init).
-
-[ ] Configurare gli script di avvio base nel file package.json generato.
-
-
-Obiettivo:
-Aggiungere toolchain per test, lint e automazione.
-
-Azioni:
-- inizializzare npm
-- creare package.json
-- definire script base
+- [ ] Eseguire l'inizializzazione del gestore di pacchetti (`npm init`).
+- [ ] Configurare gli script di automazione base (es. stub per il comando `test`) nel file `package.json` generato.
 
 Perché:
-- standard nei progetti moderni
-- abilita automazione
+- **Standard di settore:** `package.json` è il "passaporto" e la fondazione di qualsiasi progetto JavaScript/TypeScript moderno.
+- **Abilitatore di automazione:** Senza questo file non potremo installare i motori di controllo (Linter dello Step 3) e di esecuzione (Tester dello Step 4), né istruire la pipeline di CI/CD.
 
 ---
+
+### 📌 Bussola di Transizione 
+*Tracciamento dei file target e dei relativi passaggi futuri:*
+
+- [ ] `package.json` ➔ **Da creare in questa fase (Step 2)** tramite inizializzazione `npm`.
+- [ ] Configurazione Linter ➔ *Da creare nella fase Qualità Codice (Step 3).*
+- [ ] `test/timer.test.js` ➔ *Da creare nella fase di Testing (Step 4).*
+- [ ] File Applicativi nella directory /src (`index.html`, `style.css`, `timer.js`) ➔ *Da creare nella fase applicativa reale (Step 9).*
+* *Nota di Archiviazione:* `src/todo.md` verrà spostato in `docs/archive/src_todo.md`.
+* *Nota di Archiviazione:* `test/todo.md` verrà spostato in `docs/archive/test_todo.md`.
+* *Nota di Archiviazione:* `.github/workflows/todo.md` verrà spostato in `docs/archive/workflows_todo.md`.
+
+---
+
+## 🔍 STEP 3 — Qualità Codice (ESLint)
+
+**Obiettivo dello Step 3:**
+Configurare un linter statico per intercettare bug sintattici, prevenire vulnerabilità di sicurezza elementari e standardizzare lo stile di scrittura prima dell'esecuzione del codice.
+
+### 📋 Checklist Operativa
+- [ ] Installare ESLint come dipendenza di sviluppo (*DevDependency*).
+- [ ] Inizializzare il file di configurazione (`eslint.config.js` o formato supportato).
+- [ ] Integrare lo script `"lint": "eslint ."` all'interno del `package.json`.
+- [ ] Testare il comando nel terminale per verificare che scansioni correttamente il progetto.
+
+### 🔬 Perché lo facciamo:
+- **Shift Left sulla Qualità:** Il linter analizza il codice *mentre scrivi*, intercettando variabili orfane o potenziali bug logici ancor prima che i test unitari vengano avviati.
 
 ## 🔍 STEP 3 — Qualità codice (ESLint)
 
