@@ -2,23 +2,25 @@
   "name": "timer",
   "version": "1.0.0",
   "description": "Web app per un timer programmabile",
-  "main": "index.js",
-  "directories": {
-    "test": "test"
-  },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "keywords": [],
+  "homepage": "https://github.com/Theridel/timer#readme",
+  "bugs": {
+    "url": "https://github.com/Theridel/timer/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Theridelelfo/timer.git"
+    "url": "git+https://github.com/Theridel/timer.git"
   },
-  "keywords": [],
-  "author": "",
   "license": "MIT",
+  "author": "Simone Valdes",
   "type": "commonjs",
-  "bugs": {
-    "url": "https://github.com/Theridelelfo/timer/issues"
+  "main": "index.js",
+  "directories": {
+    "doc": "docs",
+    "test": "test"
   },
-  "homepage": "https://github.com/Theridelelfo/timer#readme"
+  "scripts": {
+    "test": "jest",
+    "lint": "eslint ."
+  }
 }
