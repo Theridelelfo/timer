@@ -5,7 +5,8 @@
 Obiettivo:
 Inizializzare il repository remoto con i file di configurazione essenziali e l'ambiente di sviluppo pronto.
 
-Checklist:
+### 📋 Checklist Operativa
+
 - [x] Creazione repository su GitHub
 - [x] Creazione roadmap.md
 - [x] README.md (contenente Obiettivo e Principi Guida)
@@ -36,7 +37,8 @@ Struttura da creare:
 
 ```
 
-Checklist:
+### 📋 Checklist Operativa
+
 - [x] Creare la cartella `src/` con all'interno un file `todo.md`
 - [x] Creare la cartella `test/` con all'interno un file `todo.md`
 - [x] Creare la cartella `.github/workflows/` con all'interno un file `todo.md`
@@ -56,13 +58,10 @@ Obiettivo dello Step 2:
 Configurare l'ambiente runtime locale (Node.js) e preparare il manifesto delle dipendenze del progetto.
 Aggiungere toolchain per test, lint e automazione.
 
-Checklist dello Step 2:
-
 ### 📋 Checklist Operativa
 
 - [x] Eseguire l'inizializzazione del gestore di pacchetti e contestuale creazione di `package.json`(`npm init`).
 - [x] Configurare gli script di automazione base (es. stub per il comando `test`) nel file `package.json` generato.
-
 
 Perché:
 - **Standard di settore:** `package.json` è il "passaporto" e la fondazione di qualsiasi progetto JavaScript/TypeScript moderno.
@@ -82,37 +81,34 @@ Configurare un linter statico compatibile con gli ES Modules per intercettare bu
 - [x] Integrare lo script `"lint": "eslint ."` all'interno del file `package.json`.
 - [x] Testare il comando nel terminale per verificare che la scansione statica rilevi correttamente la struttura del progetto.
 
-### 🔬 Perché lo facciamo:
+Perché:
 - **Shift Left sulla Qualità:** Il linter analizza il codice *mentre scrivi*, intercettando variabili orfane o potenziali bug logici ancor prima che i test unitari vengano avviati. Questo riduce il debito tecnico e la superficie di attacco del software.
 
 ---
 
-## 🧪 STEP 4 — Testing (Jest)
+## 🧪 STEP 4 — Configurazione Testing (Vitest)
 
+**Obiettivo dello Step 4:**
+Configurare l'ambiente di Test-Driven Development (TDD) installando Vitest, garantendo l'esecuzione di test unitari veloci e nativi in ambiente ES Modules.
 
-### 📌 Bussola di Transizione 
-*Tracciamento dei file target e dei relativi passaggi futuri:*
-
-- [ ] `test/timer.test.js` ➔ *Da creare nella fase di Testing (Step 4).*
-- [ ] File Applicativi nella directory /src (`index.html`, `style.css`, `timer.js`) ➔ *Da creare nella fase applicativa reale (Step 9).*
-* *Nota di Archiviazione:* `src/todo.md`, `test/todo.md` e `.github/workflows/todo.md` verranno spostati in `docs/archive/.
-
-
-Obiettivo:
-Testare la logica del timer.
-
-Azioni:
-- installare Jest
-- scrivere primi test
-- collegare test a CI
+### 📋 Checklist Operativa
+- [x] Installare Vitest come dipendenza di sviluppo (*DevDependency*).
+- [x] Integrare lo script di test definitivo all'interno del `package.json` (anche se lo abbiamo già pre-configurato, verifichiamo la coerenza).
+- [x] Creare un file di test minimale di prova (es. `test/timer.test.js`) per verificare che la toolchain risponda positivamente.
+- [x] Eseguire il comando nel terminale per assicurarci che i test girino correttamente.
 
 Perché:
-- garantisce correttezza logica
-- previene regressioni
+- **Automazione e Regressione:** I test unitari automatici ci assicurano che se in futuro modificheremo il codice del timer per aggiungere una funzionalità, non romperemo la logica preesistente. Nella pipeline CI/CD, questo controllo impedirà il rilascio di codice con bug logici.
 
 ---
 
 ## 🔐 STEP 5 — Security by Design
+
+### 📌 Bussola di Transizione 
+*Tracciamento dei file target e dei relativi passaggi futuri:*
+
+- [ ] File Applicativi nella directory /src (`index.html`, `style.css`, `timer.js`) ➔ *Da creare nella fase applicativa reale (Step 9).*
+* *Nota di Archiviazione:* `src/todo.md`, `test/todo.md` e `.github/workflows/todo.md` verranno spostati in `docs/archive/.
 
 Obiettivo:
 Integrare sicurezza fin dall'inizio.
