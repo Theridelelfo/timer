@@ -13,14 +13,14 @@
   },
   "license": "MIT",
   "author": "Simone Valdes",
-  "type": "commonjs",
+  "type": "module",
   "main": "index.js",
   "directories": {
     "doc": "docs",
     "test": "test"
   },
   "scripts": {
-    "test": "jest",
+    "test": "vitest",
     "lint": "eslint ."
   }
 }

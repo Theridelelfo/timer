@@ -60,8 +60,9 @@ Checklist dello Step 2:
 
 ### 📋 Checklist Operativa
 
-- [ ] Eseguire l'inizializzazione del gestore di pacchetti (`npm init`).
+- [ ] Eseguire l'inizializzazione del gestore di pacchetti e contestuale creazione di `package.json`(`npm init`).
 - [ ] Configurare gli script di automazione base (es. stub per il comando `test`) nel file `package.json` generato.
+
 
 Perché:
 - **Standard di settore:** `package.json` è il "passaporto" e la fondazione di qualsiasi progetto JavaScript/TypeScript moderno.
@@ -69,20 +70,17 @@ Perché:
 
 ---
 
+## 🔍 STEP 3 — Qualità Codice (ESLint)
+
 ### 📌 Bussola di Transizione 
 *Tracciamento dei file target e dei relativi passaggi futuri:*
 
-- [ ] `package.json` ➔ **Da creare in questa fase (Step 2)** tramite inizializzazione `npm`.
 - [ ] Configurazione Linter ➔ *Da creare nella fase Qualità Codice (Step 3).*
 - [ ] `test/timer.test.js` ➔ *Da creare nella fase di Testing (Step 4).*
 - [ ] File Applicativi nella directory /src (`index.html`, `style.css`, `timer.js`) ➔ *Da creare nella fase applicativa reale (Step 9).*
 * *Nota di Archiviazione:* `src/todo.md` verrà spostato in `docs/archive/src_todo.md`.
 * *Nota di Archiviazione:* `test/todo.md` verrà spostato in `docs/archive/test_todo.md`.
 * *Nota di Archiviazione:* `.github/workflows/todo.md` verrà spostato in `docs/archive/workflows_todo.md`.
-
----
-
-## 🔍 STEP 3 — Qualità Codice (ESLint)
 
 **Obiettivo dello Step 3:**
 Configurare un linter statico per intercettare bug sintattici, prevenire vulnerabilità di sicurezza elementari e standardizzare lo stile di scrittura prima dell'esecuzione del codice.
