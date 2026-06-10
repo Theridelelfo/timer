@@ -77,13 +77,17 @@ Configurare un linter statico compatibile con gli ES Modules per intercettare bu
 
 ### 📋 Checklist Operativa
 
-- [ ] **Configurazione Linter:** Installare ESLint come dipendenza di sviluppo (*DevDependency*).
-- [ ] Inizializzare il file di configurazione generando il file target `eslint.config.js`.
-- [ ] Integrare lo script `"lint": "eslint ."` all'interno del file `package.json`.
-- [ ] Testare il comando nel terminale per verificare che la scansione statica rilevi correttamente la struttura del progetto.
+- [x] **Configurazione Linter:** Installare ESLint come dipendenza di sviluppo (*DevDependency*).
+- [x] Inizializzare il file di configurazione generando il file target `eslint.config.js`.
+- [x] Integrare lo script `"lint": "eslint ."` all'interno del file `package.json`.
+- [x] Testare il comando nel terminale per verificare che la scansione statica rilevi correttamente la struttura del progetto.
 
 ### 🔬 Perché lo facciamo:
 - **Shift Left sulla Qualità:** Il linter analizza il codice *mentre scrivi*, intercettando variabili orfane o potenziali bug logici ancor prima che i test unitari vengano avviati. Questo riduce il debito tecnico e la superficie di attacco del software.
+
+---
+
+## 🧪 STEP 4 — Testing (Jest)
 
 
 ### 📌 Bussola di Transizione 
@@ -93,9 +97,6 @@ Configurare un linter statico compatibile con gli ES Modules per intercettare bu
 - [ ] File Applicativi nella directory /src (`index.html`, `style.css`, `timer.js`) ➔ *Da creare nella fase applicativa reale (Step 9).*
 * *Nota di Archiviazione:* `src/todo.md`, `test/todo.md` e `.github/workflows/todo.md` verranno spostati in `docs/archive/.
 
----
-
-## 🧪 STEP 4 — Testing (Jest)
 
 Obiettivo:
 Testare la logica del timer.
