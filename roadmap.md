@@ -50,7 +50,7 @@ Perché:
 
 ---
 
-## 🔧 STEP 2 — Inizializzazione ambiente Node
+## ✅🔧 STEP 2 — Inizializzazione ambiente Node
 
 Obiettivo dello Step 2:
 Configurare l'ambiente runtime locale (Node.js) e preparare il manifesto delle dipendenze del progetto.
@@ -60,8 +60,8 @@ Checklist dello Step 2:
 
 ### 📋 Checklist Operativa
 
-- [ ] Eseguire l'inizializzazione del gestore di pacchetti e contestuale creazione di `package.json`(`npm init`).
-- [ ] Configurare gli script di automazione base (es. stub per il comando `test`) nel file `package.json` generato.
+- [x] Eseguire l'inizializzazione del gestore di pacchetti e contestuale creazione di `package.json`(`npm init`).
+- [x] Configurare gli script di automazione base (es. stub per il comando `test`) nel file `package.json` generato.
 
 
 Perché:
@@ -72,41 +72,26 @@ Perché:
 
 ## 🔍 STEP 3 — Qualità Codice (ESLint)
 
+**Obiettivo dello Step 3:**
+Configurare un linter statico compatibile con gli ES Modules per intercettare bug sintattici, prevenire vulnerabilità di sicurezza elementari e standardizzare lo stile di scrittura prima dell'esecuzione del codice.
+
+### 📋 Checklist Operativa
+
+- [ ] **Configurazione Linter:** Installare ESLint come dipendenza di sviluppo (*DevDependency*).
+- [ ] Inizializzare il file di configurazione generando il file target `eslint.config.js`.
+- [ ] Integrare lo script `"lint": "eslint ."` all'interno del file `package.json`.
+- [ ] Testare il comando nel terminale per verificare che la scansione statica rilevi correttamente la struttura del progetto.
+
+### 🔬 Perché lo facciamo:
+- **Shift Left sulla Qualità:** Il linter analizza il codice *mentre scrivi*, intercettando variabili orfane o potenziali bug logici ancor prima che i test unitari vengano avviati. Questo riduce il debito tecnico e la superficie di attacco del software.
+
+
 ### 📌 Bussola di Transizione 
 *Tracciamento dei file target e dei relativi passaggi futuri:*
 
-- [ ] Configurazione Linter ➔ *Da creare nella fase Qualità Codice (Step 3).*
 - [ ] `test/timer.test.js` ➔ *Da creare nella fase di Testing (Step 4).*
 - [ ] File Applicativi nella directory /src (`index.html`, `style.css`, `timer.js`) ➔ *Da creare nella fase applicativa reale (Step 9).*
-* *Nota di Archiviazione:* `src/todo.md` verrà spostato in `docs/archive/src_todo.md`.
-* *Nota di Archiviazione:* `test/todo.md` verrà spostato in `docs/archive/test_todo.md`.
-* *Nota di Archiviazione:* `.github/workflows/todo.md` verrà spostato in `docs/archive/workflows_todo.md`.
-
-**Obiettivo dello Step 3:**
-Configurare un linter statico per intercettare bug sintattici, prevenire vulnerabilità di sicurezza elementari e standardizzare lo stile di scrittura prima dell'esecuzione del codice.
-
-### 📋 Checklist Operativa
-- [ ] Installare ESLint come dipendenza di sviluppo (*DevDependency*).
-- [ ] Inizializzare il file di configurazione (`eslint.config.js` o formato supportato).
-- [ ] Integrare lo script `"lint": "eslint ."` all'interno del `package.json`.
-- [ ] Testare il comando nel terminale per verificare che scansioni correttamente il progetto.
-
-### 🔬 Perché lo facciamo:
-- **Shift Left sulla Qualità:** Il linter analizza il codice *mentre scrivi*, intercettando variabili orfane o potenziali bug logici ancor prima che i test unitari vengano avviati.
-
-## 🔍 STEP 3 — Qualità codice (ESLint)
-
-Obiettivo:
-Evitare errori e mantenere codice pulito.
-
-Azioni:
-- installare ESLint
-- configurarlo
-- aggiungere script lint
-
-Perché:
-- intercetta bug prima dei test
-- standardizza stile
+* *Nota di Archiviazione:* `src/todo.md`, `test/todo.md` e `.github/workflows/todo.md` verranno spostati in `docs/archive/.
 
 ---
 
