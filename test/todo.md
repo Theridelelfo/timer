@@ -1,17 +1,18 @@
 # TODO - test
 
-Questa cartella conterrà i test unitari automatizzati per verificare la logica del timer tramite Jest.
+Questa cartella conterrà i test unitari automatizzati per verificare la logica del timer tramite Vitest.
 
 ## ✅ Completato
 
 ### 1. Set up di base
 - [x] Creazione della cartella `test/`
 - [x] Creazione di questo file `todo.md` di tracciamento
+- [x] Installare Vitest per supporto nativo a ES Modules
 
 ## 🔧 Da Fare (I micro-step della fase di Testing)
 
 ### 2. Configurazione Ambiente (Step 4)
-- [ ] Verificare l'installazione di Jest e l'integrazione nel `package.json`
+- [ ] Verificare l'installazione di Vitest e l'integrazione nel `package.json`
 
 ### 3. Scrittura dei Test Unitari
 - [ ] Creare il file `timer.test.js`
