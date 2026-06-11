@@ -17,10 +17,12 @@
 
 ### 3. Fase di Quality Assurance (QA)
 - [ ] **Linting:** Integrare l'esecuzione automatica di ESLint per bloccare codice formattato male o con potenziali bug sintattici.
-- [ ] **Testing:** Integrare l'esecuzione automatica della suite di test Jest. La pipeline deve fallire se anche un solo test fallisce.
 
 ### 4. Fase di Security (Il pilastro Sec)
 - [ ] **Dependency Audit:** Configurare un controllo di sicurezza automatico (es. `npm audit`) per intercettare librerie esterne vulnerabili prima del build.
 
-### 5. Fase di Deployment (CD)
+### 5 Fase di test
+- [ ] **Testing:** Integrare l'esecuzione automatica della suite di test Vitest. La pipeline deve fallire se anche un solo test fallisce.
+
+### 6. Fase di Deployment (CD)
 - [ ] **GitHub Pages:** Configurare il rilascio automatico dell'applicazione web sul server statico di GitHub solo se tutte le fasi precedenti (Lint, Test, Audit) sono state superate con successo.
