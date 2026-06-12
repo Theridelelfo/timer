@@ -104,27 +104,33 @@ Perché:
 
 ## 🔐 STEP 5 — Security by Design
 
-### 📌 Bussola di Transizione 
-*Tracciamento dei file target e dei relativi passaggi futuri:*
-
-- [ ] File Applicativi nella directory /src (`index.html`, `style.css`, `timer.js`) ➔ *Da creare nella fase applicativa reale (Step 9).*
-* *Nota di Archiviazione:* `src/todo.md`, `test/todo.md` e `.github/workflows/todo.md` verranno spostati in `docs/archive/.
-
 Obiettivo:
-Integrare sicurezza fin dall'inizio.
+Integrare la sicurezza all'interno dello skeleton dell'applicazione prima di scrivere la logica di business.
 
-Azioni:
-- usare textContent (no innerHTML)
-- definire Content Security Policy
-- evitare dipendenze inutili
+### 📋 Checklist Operativa
 
-Perché:
+- [x] Creare il file di specifica `src/security-rules.json` per bandire `innerHTML`.
+- [x] Creare lo scheletro di `index.html` e `timer.html` con Content Security Policy (CSP) restrittiva.
+- [x] Creare i file segnaposto vuoti `style.css` e `timer.js` come ES Modules.
+- [x] Evitare dipendenze inutili
+- [ ] Validare la CSP nel browser tramite i DevTools di Codespaces simulando un attacco XSS inline.
+
+Perchè:
+
 - riduce superficie di attacco
 - previene XSS
 
 ---
 
 ## ⚙️ STEP 6 — CI (Continuous Integration)
+
+### 📌 Bussola di Transizione 
+*Tracciamento dei file target e dei relativi passaggi futuri:*
+- 📂 **Fase CI/CD (Step 6):** Configurazione del workflow YAML `.github/workflows/ci-cd.yml` (Ordine: Lint ➔ Audit ➔ Test).
+- ⚠️ **Nota per lo Step 8 (Sec Automation):** Valutare l'integrazione in pipeline di uno scanner SAST leggero (es. Semgrep) per fare l'audit della CSP stessa.
+- [ ] File Applicativi nella directory /src (`index.html`, `style.css`, `timer.js`) ➔ *Da creare nella fase applicativa reale (Step 9).*
+- 📂 **Fase Applicativa (Step 9):** Scrittura della logica di calcolo e degli Event Listeners in `src/timer.js`.
+* *Nota di Archiviazione:* `src/todo.md`, `test/todo.md` e `.github/workflows/todo.md` verranno spostati in `docs/archive/.
 
 Obiettivo:
 Automatizzare controlli su ogni commit.
