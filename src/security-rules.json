@@ -1,0 +1,16 @@
+{
+  "project": "Timer Web App",
+  "security_level": "High (PoC DevSecOps)",
+  "rules": {
+    "dom_manipulation": {
+      "allowed": ["textContent", "innerText", "createElement"],
+      "forbidden": ["innerHTML", "outerHTML", "document.write"],
+      "reason": "Prevenzione radicale di vulnerabilità Cross-Site Scripting (XSS)"
+    },
+    "javascript_execution": {
+      "allowed": ["External modules via ESM (timer.js)"],
+      "forbidden": ["Inline scripts (<script>...</script>)", "Inline event handlers (onclick=)"],
+      "reason": "Conformità ai vincoli stringenti della Content Security Policy (CSP)"
+    }
+  }
+}

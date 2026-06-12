@@ -86,7 +86,7 @@ Perché:
 
 ---
 
-## 🧪 STEP 4 — Configurazione Testing (Vitest)
+## ✅🧪 STEP 4 — Configurazione Testing (Vitest)
 
 **Obiettivo dello Step 4:**
 Configurare l'ambiente di Test-Driven Development (TDD) installando Vitest, garantendo l'esecuzione di test unitari veloci e nativi in ambiente ES Modules.
@@ -95,7 +95,7 @@ Configurare l'ambiente di Test-Driven Development (TDD) installando Vitest, gara
 - [x] Installare Vitest come dipendenza di sviluppo (*DevDependency*).
 - [x] Integrare lo script di test definitivo all'interno del `package.json` (anche se lo abbiamo già pre-configurato, verifichiamo la coerenza).
 - [x] Creare un file di test minimale di prova (es. `test/timer.test.js`) per verificare che la toolchain risponda positivamente.
-- [ ] Eseguire il comando nel terminale per assicurarci che i test girino correttamente.
+- [x] Eseguire il comando nel terminale per assicurarci che i test girino correttamente.
 
 Perché:
 - **Automazione e Regressione:** I test unitari automatici ci assicurano che se in futuro modificheremo il codice del timer per aggiungere una funzionalità, non romperemo la logica preesistente. Nella pipeline CI/CD, questo controllo impedirà il rilascio di codice con bug logici.
