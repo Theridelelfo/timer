@@ -125,18 +125,15 @@ Perchè:
 ## ⚙️ STEP 6 — CI (Continuous Integration)
 
 Obiettivo:
-Automatizzare controlli su ogni commit.
+Automatizzare i controlli di qualità e sicurezza su ogni commit prima di toccare la logica applicativa.
 
 ### 📋 Checklist Operativa
-[ ] Creare il file di configurazione del workflow .github/workflows/ci-cd.yml.
 
-[ ] Configurare l'ambiente di esecuzione (Runner Ubuntu, Checkout del codice, installazione di Node.js e delle dipendenze).
-
-[ ] Configurare la fase di Linting (esecuzione di ESLint).
-
-[ ] Configurare la fase di Security Audit (npm audit o simili).
-
-[ ] Configurare la fase di Testing (esecuzione di Vitest in modalità run singola).
+- [ ] Creare il file di configurazione del workflow `.github/workflows/ci-cd.yml`.
+- [ ] Configurare l'ambiente di esecuzione (Runner Ubuntu, Checkout del codice, installazione di Node.js 22 e `npm ci`).
+- [ ] Configurare e testare la fase di Linting (`npm run lint`).
+- [ ] Configurare e testare la fase di Security Audit (`npm audit`).
+- [ ] Configurare e testare la fase di Testing (`npm run test:run`).
 
 
 Pipeline:
@@ -160,7 +157,13 @@ Perché:
 - [ ] File Applicativi nella directory /src (`index.html`, `style.css`, `timer.js`) ➔ *Da creare nella fase applicativa reale (Step 9).*
 - 📂 **Fase Applicativa (Step 9):** Scrittura della logica di calcolo e degli Event Listeners in `src/timer.js`.
 * *Nota di Archiviazione:* `src/todo.md`, `test/todo.md` e `.github/workflows/todo.md` verranno spostati in `docs/archive/.
-
+### 📌 Bussola di Transizione 
+*Tracciamento dei file target e dei relativi passaggi futuri:*
+- 📂 **Fase Attuale (Step 6):** Configurazione del workflow YAML `.github/workflows/ci-cd.yml` (Esecuzione: Linting ➔ Security Audit ➔ Test).
+- 📂 **Fase CD (Step 7):** Configurazione del Deployment automatico (estrazione della cartella `src/` nella root del server).
+- ⚠️ **Nota per lo Step 8 (Sec Automation):** Valutare l'integrazione in pipeline di uno scanner SAST leggero (es. Semgrep) per fare l'audit della CSP stessa.
+- 📂 **Fase Applicativa (Step 9):** Scrittura della logica di calcolo e degli Event Listeners all'interno del file già esistente `src/timer.js`.
+- 🗃 **Nota di Archiviazione:** I file `src/todo.md`, `test/todo.md` e `.github/workflows/todo.md` verranno spostati in `docs/archive/` al completamento delle rispettive fasi.
 ---
 
 ## 🚀 STEP 7 — CD (Continuous Deployment)
