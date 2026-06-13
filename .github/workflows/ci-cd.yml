@@ -19,10 +19,10 @@ jobs:
     steps:
     # 1. Inizializzazione Ambiente
     - name: Checkout del codice
-      uses: actions/checkout@v4
+      uses: actions/checkout@v5
 
     - name: Configurazione Node.js
-      uses: actions/setup-node@v4
+      uses: actions/setup-node@v5
       with:
         node-with: 20
         cache: 'npm'
