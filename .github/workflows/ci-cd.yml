@@ -24,7 +24,7 @@ jobs:
     - name: Configurazione Node.js
       uses: actions/setup-node@v5
       with:
-        node-with: 20
+        node-version: 22
         cache: 'npm'
 
     - name: Installazione Dipendenze
