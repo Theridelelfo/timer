@@ -8,10 +8,12 @@ Questa cartella conterrà il codice applicativo (Frontend) della web app timer.
 - [x] Creazione della cartella `src/`
 - [x] Creazione di questo file `todo.md` di tracciamento
 
-## 🔧 Da Fare (I micro-step di sviluppo)
-
 ### 2. Struttura di Base con Sicurezza Integrata (Step 5)
 - [x] Creare il file di specifica `/src/security-rules.json` per formalizzare il divieto di `innerHTML` e l'obbligo di `textContent`.
+
+## 🔧 Da Fare (I micro-step di sviluppo)
+
+
 - [x] Creare lo scheletro di `index.html` implementando la Content Security Policy (CSP) restrittiva nel tag `<head>` e il collegamento ai file locali.
 - [x] Creare lo scheletro di `timer.html` implementando la Content Security Policy (CSP) restrittiva nel tag `<head>` e il collegamento ai file locali.
 - [ ] Creare i file segnaposto vuoti `style.css` e `timer.js` (configurato come ES Module) per soddisfare i vincoli della CSP (`'self'`).

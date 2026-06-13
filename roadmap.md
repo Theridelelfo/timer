@@ -113,7 +113,7 @@ Integrare la sicurezza all'interno dello skeleton dell'applicazione prima di scr
 - [x] Creare lo scheletro di `index.html` e `timer.html` con Content Security Policy (CSP) restrittiva.
 - [x] Creare i file segnaposto vuoti `style.css` e `timer.js` come ES Modules.
 - [x] Evitare dipendenze inutili
-- [ ] Validare la CSP nel browser tramite i DevTools di Codespaces simulando un attacco XSS inline.
+- [x] Validare la CSP nel browser tramite i DevTools di Codespaces simulando un attacco XSS inline.
 
 Perchè:
 
@@ -124,16 +124,20 @@ Perchè:
 
 ## ⚙️ STEP 6 — CI (Continuous Integration)
 
-### 📌 Bussola di Transizione 
-*Tracciamento dei file target e dei relativi passaggi futuri:*
-- 📂 **Fase CI/CD (Step 6):** Configurazione del workflow YAML `.github/workflows/ci-cd.yml` (Ordine: Lint ➔ Audit ➔ Test).
-- ⚠️ **Nota per lo Step 8 (Sec Automation):** Valutare l'integrazione in pipeline di uno scanner SAST leggero (es. Semgrep) per fare l'audit della CSP stessa.
-- [ ] File Applicativi nella directory /src (`index.html`, `style.css`, `timer.js`) ➔ *Da creare nella fase applicativa reale (Step 9).*
-- 📂 **Fase Applicativa (Step 9):** Scrittura della logica di calcolo e degli Event Listeners in `src/timer.js`.
-* *Nota di Archiviazione:* `src/todo.md`, `test/todo.md` e `.github/workflows/todo.md` verranno spostati in `docs/archive/.
-
 Obiettivo:
 Automatizzare controlli su ogni commit.
+
+### 📋 Checklist Operativa
+[ ] Creare il file di configurazione del workflow .github/workflows/ci-cd.yml.
+
+[ ] Configurare l'ambiente di esecuzione (Runner Ubuntu, Checkout del codice, installazione di Node.js e delle dipendenze).
+
+[ ] Configurare la fase di Linting (esecuzione di ESLint).
+
+[ ] Configurare la fase di Security Audit (npm audit o simili).
+
+[ ] Configurare la fase di Testing (esecuzione di Vitest in modalità run singola).
+
 
 Pipeline:
 - install dependencies
@@ -147,6 +151,15 @@ GitHub Actions
 Perché:
 - garantisce qualità continua
 - evita errori in produzione
+
+
+### 📌 Bussola di Transizione 
+*Tracciamento dei file target e dei relativi passaggi futuri:*
+- 📂 **Fase CI/CD (Step 6):** Configurazione del workflow YAML `.github/workflows/ci-cd.yml` (Ordine: Lint ➔ Audit ➔ Test).
+- ⚠️ **Nota per lo Step 8 (Sec Automation):** Valutare l'integrazione in pipeline di uno scanner SAST leggero (es. Semgrep) per fare l'audit della CSP stessa.
+- [ ] File Applicativi nella directory /src (`index.html`, `style.css`, `timer.js`) ➔ *Da creare nella fase applicativa reale (Step 9).*
+- 📂 **Fase Applicativa (Step 9):** Scrittura della logica di calcolo e degli Event Listeners in `src/timer.js`.
+* *Nota di Archiviazione:* `src/todo.md`, `test/todo.md` e `.github/workflows/todo.md` verranno spostati in `docs/archive/.
 
 ---
 
