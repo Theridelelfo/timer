@@ -1,24 +1,26 @@
 # TODO - test
 
-Questa cartella conterrà i test unitari automatizzati per verificare la logica del timer tramite Vitest.
+Questa cartella contiene i test unitari automatizzati per verificare la logica matematica del timer tramite Vitest.
 
 ## ✅ Completato
 
 ### 1. Set up di base
 - [x] Creazione della cartella `test/`
 - [x] Creazione di questo file `todo.md` di tracciamento
-- [x] Installare Vitest per supporto nativo a ES Modules
+- [x] Installazione di Vitest come dipendenza di sviluppo nel `package.json` per il supporto nativo a ES Modules.
 
-## 🔧 Da Fare (I micro-step della fase di Testing)
+---
 
-### 2. Configurazione Ambiente (Step 4)
-- [ ] Verificare l'installazione di Vitest e l'integrazione nel `package.json`
+## 🔧 Da Fare (I micro-step di sviluppo e verifica futuri)
 
-### 3. Scrittura dei Test Unitari
-- [ ] Creare il file `timer.test.js`
-- [ ] Scrivere i casi di test per la funzione di formattazione del tempo (es. verificare che trasformi i secondi nel formato `MM:SS`)
-- [ ] Scrivere i casi di test per i limiti inferiori (es. come si comporta il timer con numeri negativi o zero)
+### 2. Configurazione e Validazione Locale (Fase Corrente)
+- [ ] Verificare che il comando locale `npm run test` avvii correttamente l'interfaccia interattiva di Vitest nel terminale.
+- [ ] Verificare che il comando di isolamento `npm run test:run` (destinato alla CI) esegua i test una sola volta e si chiuda autonomamente.
 
-### 4. Analisi e Copertura (QA)
-- [ ] Eseguire la suite di test localmente dal terminale tramite `npm test`
-- [ ] Controllare che il report di copertura (*Code Coverage*) della logica sia ottimale prima del push
+### 3. Scrittura dei Test Unitari (Fase Applicativa - Step 9)
+- [ ] Creare il file di specifica dei test `test/timer.test.js`.
+- [ ] Scrivere i casi di test per la funzione di formattazione del tempo (verificare che i secondi puri vengano convertiti rigorosamente nella stringa `MM:SS`, es. 65 secondi ➔ `01:05`).
+- [ ] Scrivere i casi di test per la gestione dei limiti e degli errori (es. come risponde l'algoritmo se riceve valori negativi, nulli o stringhe non numeriche).
+
+### 4. Analisi di Qualità (QA)
+- [ ] Monitorare che la suite di test rimanga stabile nel cloud quando viene invocata dal terzo cancello della pipeline GitHub Actions.
