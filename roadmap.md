@@ -129,7 +129,7 @@ Automatizzare i controlli di qualità e sicurezza su ogni commit prima di toccar
 
 ### 📋 Checklist Operativa
 
-- [ ] Creare il file di configurazione del workflow `.github/workflows/ci-cd.yml`.
+- [x] Creare il file di configurazione del workflow `.github/workflows/ci-cd.yml`.
 - [ ] Configurare l'ambiente di esecuzione (Runner Ubuntu, Checkout del codice, installazione di Node.js 22 e `npm ci`).
 - [ ] Configurare e testare la fase di Linting (`npm run lint`).
 - [ ] Configurare e testare la fase di Security Audit (`npm audit`).
