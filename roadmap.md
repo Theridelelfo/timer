@@ -102,7 +102,7 @@ Perché:
 
 ---
 
-## 🔐 STEP 5 — Security by Design
+## ✅🔐 STEP 5 — Security by Design
 
 Obiettivo:
 Integrare la sicurezza all'interno dello skeleton dell'applicazione prima di scrivere la logica di business.
@@ -130,17 +130,17 @@ Automatizzare i controlli di qualità e sicurezza su ogni commit prima di toccar
 ### 📋 Checklist Operativa
 
 - [x] Creare il file di configurazione del workflow `.github/workflows/ci-cd.yml`.
-- [ ] Configurare l'ambiente di esecuzione (Runner Ubuntu, Checkout del codice, installazione di Node.js 22 e `npm ci`).
-- [ ] Configurare e testare la fase di Linting (`npm run lint`).
-- [ ] Configurare e testare la fase di Security Audit (`npm audit`).
-- [ ] Configurare e testare la fase di Testing (`npm run test:run`).
+- [x] Configurare l'ambiente di esecuzione (Runner Ubuntu, Checkout del codice, installazione di Node.js 22 e `npm ci`).
+- [x] Configurare e testare la fase di Linting (`npm run lint`).
+- [x] Configurare e testare la fase di Security Audit (`npm audit`).
+- [x] Configurare e testare la fase di Testing (`npm run test:run`).
 
 
 Pipeline:
 - install dependencies
 - lint
-- test
 - security audit
+- test
 
 Strumento:
 GitHub Actions
@@ -149,34 +149,36 @@ Perché:
 - garantisce qualità continua
 - evita errori in produzione
 
-
-### 📌 Bussola di Transizione 
-*Tracciamento dei file target e dei relativi passaggi futuri:*
-- 📂 **Fase CI/CD (Step 6):** Configurazione del workflow YAML `.github/workflows/ci-cd.yml` (Ordine: Lint ➔ Audit ➔ Test).
-- ⚠️ **Nota per lo Step 8 (Sec Automation):** Valutare l'integrazione in pipeline di uno scanner SAST leggero (es. Semgrep) per fare l'audit della CSP stessa.
-- [ ] File Applicativi nella directory /src (`index.html`, `style.css`, `timer.js`) ➔ *Da creare nella fase applicativa reale (Step 9).*
-- 📂 **Fase Applicativa (Step 9):** Scrittura della logica di calcolo e degli Event Listeners in `src/timer.js`.
-* *Nota di Archiviazione:* `src/todo.md`, `test/todo.md` e `.github/workflows/todo.md` verranno spostati in `docs/archive/.
-### 📌 Bussola di Transizione 
-*Tracciamento dei file target e dei relativi passaggi futuri:*
-- 📂 **Fase Attuale (Step 6):** Configurazione del workflow YAML `.github/workflows/ci-cd.yml` (Esecuzione: Linting ➔ Security Audit ➔ Test).
-- 📂 **Fase CD (Step 7):** Configurazione del Deployment automatico (estrazione della cartella `src/` nella root del server).
-- ⚠️ **Nota per lo Step 8 (Sec Automation):** Valutare l'integrazione in pipeline di uno scanner SAST leggero (es. Semgrep) per fare l'audit della CSP stessa.
-- 📂 **Fase Applicativa (Step 9):** Scrittura della logica di calcolo e degli Event Listeners all'interno del file già esistente `src/timer.js`.
-- 🗃 **Nota di Archiviazione:** I file `src/todo.md`, `test/todo.md` e `.github/workflows/todo.md` verranno spostati in `docs/archive/` al completamento delle rispettive fasi.
----
-
 ## 🚀 STEP 7 — CD (Continuous Deployment)
 
 Obiettivo:
-Deploy automatico su GitHub Pages.
+Rilascio e pubblicazione automatica dell'applicazione web sul server di produzione solo al superamento dei cancelli di controllo.
 
-Trigger:
-push su main
+### 📋 Checklist Operativa
+- [x] Abilitare l'utilizzo di "GitHub Actions" come sorgente di build nel pannello Settings del repository.
+- [x] Configurare i permessi crittografici globali di scrittura (`permissions`) nel workflow YAML.
+- [x] Integrare la fase di isolamento e caricamento dell'artefatto focalizzata sulla sola cartella `./src`.
+- [x] Implementare lo step finale di deploy per rendere l'applicazione accessibile pubblicamente online.
+
+### 📌 Bussola di Transizione 
+*Tracciamento dei file target e dei relativi passaggi futuri:*
+
+- 📂 **Fase CD (Step 7):** Configurazione del Deployment automatico (estrazione e isolamento della cartella `src/` nella root del server web).
+- ⚠️ **Nota per lo Step 8 (Sec Automation):** Valutare l'integrazione in pipeline di uno scanner SAST leggero (es. Semgrep) per fare l'audit della CSP e del codice.
+- [ ] **File Applicativi nella directory `/src`:** Creazione e sviluppo dei file target (`index.html`, `style.css`, `timer.js`) ➔ *Da avviare nella fase applicativa reale (Step 9).*
+- 📂 **Fase Applicativa (Step 9):** Scrittura dell'interfaccia utente, della logica di calcolo e degli Event Listeners in `src/timer.js`.
+- 🗃 **Nota di Archiviazione:** Al completamento e alla stabilizzazione dello Step 8, i file `src/todo.md`, `test/todo.md` e `.github/workflows/todo.md` verranno spostati in `docs/archive/`.
+
+Strumenti Utilizzati:
+- GitHub Actions Environment (Azioni ufficiali: `configure-pages`, `upload-pages-artifact`, `deploy-pages`).
+
+Trigger e Vincoli di Esecuzione:
+- **Innesco:** Comandi di `push` (o merge approvati) verso il ramo `main`.
+- **Condizione di Sicurezza:** Il deployment si attiva esclusivamente se i tre cancelli precedenti (Linting ➔ Security Audit ➔ Testing) restituiscono esito verde.
 
 Perché:
-- elimina deploy manuali
-- pipeline completa
+- **Zero Overhead:** Elimina completamente i rilasci manuali e i rischi di disallineamento tra locale e produzione.
+- **Infrastruttura Conclusa:** Chiude il ciclo DevOps fondamentale, creando una pipeline integrata e sicura al 100%.
 
 ---
 

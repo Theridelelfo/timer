@@ -19,10 +19,6 @@ Questa cartella contiene i file di configurazione per l'automazione dei controll
 - [x] Verificare il funzionamento del secondo cancello (**Security Audit**) tramite il controllo delle dipendenze con `npm audit`.
 - [x] Verificare il funzionamento del terzo cancello (**Testing**) assicurandosi che la suite Vitest venga eseguita in modalità singola (`vitest run`).
 
----
-
-## 🔧 Da Fare (I micro-step di test e automazione futuri)
-
 ### 4. Fase di Deployment (Futuro Step 7)
 - [ ] Modificare l'impostazione sul pannello Settings del repository GitHub per cambiare la sorgente di Pages in "GitHub Actions".
 - [ ] Integrare nel file `ci-cd.yml` i permessi di scrittura obbligatori (`permissions: pages: write`).
@@ -31,7 +27,14 @@ Questa cartella contiene i file di configurazione per l'automazione dei controll
 
 ---
 
+## 🔧 Da Fare (I micro-step di test e automazione futuri)
+
+### 5. Manutenzione Infrastruttura
+- [ ] Monitorare i tempi di esecuzione dei runner nel cloud per ottimizzare la cache in caso di rallentamenti.
+
+---
+
 ### 📌 BUSSOLA DI TRANSIZIONE (Promemoria di Architettura)
 *Note per le fasesuccessive del progetto globale:*
-- 🔍 **Nota di Debug:** I warning sui runner di GitHub relativi a Node 20 dipendono da configurazioni interne della piattaforma e non influenzano l'esito dei nostri test.
+
 - 🗃 **Fase Archiviazione:** Al completamento e alla stabilizzazione della pipeline di Deployment, questo file `todo.md` verrà spostato in `docs/archive/`.

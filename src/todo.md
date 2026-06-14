@@ -30,5 +30,4 @@ Questa cartella conterrà il codice applicativo (Frontend) della web app timer.
 
 📌 BUSSOLA DI TRANSIZIONE
 
-- Nota per lo Step 6 (CI/CD): Il file index.html dovrà essere validato dalla pipeline prima del deployment.
 - Nota per lo Step 8 (Sec Automation): Inserire nei passaggi futuri un controllo automatizzato della robustezza dei tag CSP.
