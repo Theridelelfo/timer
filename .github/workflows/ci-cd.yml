@@ -12,6 +12,14 @@ on:
       - '**.md'
       - 'docs/**'
 
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
 jobs:
   pipeline:
     runs-on: ubuntu-latest
@@ -24,7 +32,7 @@ jobs:
     - name: Configurazione Node.js
       uses: actions/setup-node@v5
       with:
-        node-version: 22
+        node-version: 22 
         cache: 'npm'
 
     - name: Installazione Dipendenze
@@ -41,3 +49,17 @@ jobs:
     # 4. Terzo Cancello: TESTING (Logica di Business)
     - name: Esecuzione Suite di Test
       run: npm run test:run
+
+# 🚀 STEP 7: DEPLOYMENT AUTOMATICO (Attivo solo se i 3 cancelli sopra sono VERDI)
+    - name: Configura ambiente GitHub Pages
+      uses: actions/configure-pages@v5
+
+    - name: Carica l'artefatto della cartella src
+      uses: actions/upload-pages-artifact@v3
+      with:
+        # Ordiniamo al server di prendere ESCLUSIVAMENTE la cartella src
+        path: './src'
+
+    - name: Pubblica su GitHub Pages
+      id: deployment
+      uses: actions/deploy-pages@v4      
