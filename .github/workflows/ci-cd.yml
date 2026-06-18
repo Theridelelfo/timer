@@ -52,7 +52,7 @@ jobs:
 
 # 🚀 STEP 7: DEPLOYMENT AUTOMATICO (Attivo solo se i 3 cancelli sopra sono VERDI)
     - name: Configura ambiente GitHub Pages
-      uses: actions/configure-pages@v5
+      uses: actions/configure-pages@v6
 
     - name: Carica l'artefatto della cartella src
       uses: actions/upload-pages-artifact@v4
