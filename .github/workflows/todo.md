@@ -31,10 +31,11 @@ Questa cartella contiene i file di configurazione per l'automazione dei controll
 
 ### 5. Manutenzione Infrastruttura
 - [ ] Monitorare i tempi di esecuzione dei runner nel cloud per ottimizzare la cache in caso di rallentamenti.
+- [ ] 📌 [PIANIFICAZIONE STRATEGICA 2027] **Capodanno 2027:** Upgrade programmato dell'ambiente di runtime da Node 22 a Node 24 (LTS) sia nei runner di CI/CD che nell'ambiente locale, prima dell'EOL (End of Life) di Node 22 previsto per Maggio 2027.
 
 ---
 
 ### 📌 BUSSOLA DI TRANSIZIONE (Promemoria di Architettura)
-*Note per le fasesuccessive del progetto globale:*
+*Note per le fasi successive del progetto globale:*
 
 - 🗃 **Fase Archiviazione:** Al completamento e alla stabilizzazione della pipeline di Deployment, questo file `todo.md` verrà spostato in `docs/archive/`.
