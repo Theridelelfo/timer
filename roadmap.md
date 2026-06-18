@@ -122,7 +122,7 @@ Perchè:
 
 ---
 
-## ⚙️ STEP 6 — CI (Continuous Integration)
+## ✅⚙️ STEP 6 — CI (Continuous Integration)
 
 Obiettivo:
 Automatizzare i controlli di qualità e sicurezza su ogni commit prima di toccare la logica applicativa.
@@ -134,7 +134,7 @@ Automatizzare i controlli di qualità e sicurezza su ogni commit prima di toccar
 - [x] Configurare e testare la fase di Linting (`npm run lint`).
 - [x] Configurare e testare la fase di Security Audit (`npm audit`).
 - [x] Configurare e testare la fase di Testing (`npm run test:run`).
-
+- [x] Implementare il **Path Filtering** per escludere i file di documentazione (`**.md`, `docs/**`) dal triggering della pipeline.
 
 Pipeline:
 - install dependencies
@@ -146,8 +146,8 @@ Strumento:
 GitHub Actions
 
 Perché:
-- garantisce qualità continua
-- evita errori in produzione
+- **Qualità Continua:** Intercetta i bug strutturali e le regressioni logiche prima che raggiungano il server di produzione.
+- **Fail-Fast:** Isola gli errori nei primi stadi dell'esecuzione (es. lint/audit) risparmiando tempo di computazione sul cloud.
 
 ## 🚀 STEP 7 — CD (Continuous Deployment)
 
@@ -159,18 +159,11 @@ Rilascio e pubblicazione automatica dell'applicazione web sul server di produzio
 - [x] Configurare i permessi crittografici globali di scrittura (`permissions`) nel workflow YAML.
 - [x] Integrare la fase di isolamento e caricamento dell'artefatto focalizzata sulla sola cartella `./src`.
 - [x] Implementare lo step finale di deploy per rendere l'applicazione accessibile pubblicamente online.
-
-### 📌 Bussola di Transizione 
-*Tracciamento dei file target e dei relativi passaggi futuri:*
-
-- 📂 **Fase CD (Step 7):** Configurazione del Deployment automatico (estrazione e isolamento della cartella `src/` nella root del server web).
-- ⚠️ **Nota per lo Step 8 (Sec Automation):** Valutare l'integrazione in pipeline di uno scanner SAST leggero (es. Semgrep) per fare l'audit della CSP e del codice.
-- [ ] **File Applicativi nella directory `/src`:** Creazione e sviluppo dei file target (`index.html`, `style.css`, `timer.js`) ➔ *Da avviare nella fase applicativa reale (Step 9).*
-- 📂 **Fase Applicativa (Step 9):** Scrittura dell'interfaccia utente, della logica di calcolo e degli Event Listeners in `src/timer.js`.
-- 🗃 **Nota di Archiviazione:** Al completamento e alla stabilizzazione dello Step 8, i file `src/todo.md`, `test/todo.md` e `.github/workflows/todo.md` verranno spostati in `docs/archive/`.
+- [x] Configurazione del Deployment automatico (estrazione, isolamento e archiviazione tramite comando `tar` della cartella `src/` nella root del server web).
+- [x] Mantenere l'ambiente dei runner forzato su Node 24 (`FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true`) per scudare la pipeline dall'obsolescenza strutturale delle azioni di terze parti e di GitHub stesso.
 
 Strumenti Utilizzati:
-- GitHub Actions Environment (Azioni ufficiali: `configure-pages`, `upload-pages-artifact`, `deploy-pages`).
+- GitHub Actions Environment (Azioni ufficiali: `configure-pages@v5`, `upload-pages-artifact@v4`, `deploy-pages@v4`).
 
 Trigger e Vincoli di Esecuzione:
 - **Innesco:** Comandi di `push` (o merge approvati) verso il ramo `main`.
@@ -186,6 +179,14 @@ Perché:
 
 Obiettivo:
 Monitorare vulnerabilità automaticamente.
+
+### 📌 Bussola di Transizione 
+*Tracciamento dei file target e dei relativi passaggi futuri:*
+
+- ⚠️ **Nota per lo Step 8 (Sec Automation):** Valutare l'integrazione in pipeline di uno scanner SAST leggero (es. Semgrep) per fare l'audit della CSP e del codice.
+- [ ] **File Applicativi nella directory `/src`:** Creazione e sviluppo dei file target (`index.html`, `style.css`, `timer.js`) ➔ *Da avviare nella fase applicativa reale (Step 9).*
+- 📂 **Fase Applicativa (Step 9):** Scrittura dell'interfaccia utente, della logica di calcolo e degli Event Listeners in `src/timer.js`.
+- 🗃 **Nota di Archiviazione:** Al completamento e alla stabilizzazione dello Step 8, i file `src/todo.md`, `test/todo.md` e `.github/workflows/todo.md` verranno spostati in `docs/archive/`.
 
 Azioni:
 - abilitare Dependabot
