@@ -1,0 +1,15 @@
+version: 2
+updates:
+  # 📦 1. MONITORAGGIO DELLE DIPENDENZE NPM (Il motore del Timer)
+  - package-ecosystem: "npm"
+    directory: "/" # Cerca il package.json nella root del progetto
+    schedule:
+      interval: "weekly" # Controlla gli aggiornamenti una volta alla settimana
+    open-pull-requests-limit: 5 # Non aprire più di 5 PR contemporaneamente per non intasarti
+
+  # 🛰️ 2. MONITORAGGIO DELLE GITHUB ACTIONS (I motori della Pipeline)
+  - package-ecosystem: "github-actions"
+    directory: "/" # Cerca i file .yml dentro .github/workflows/
+    schedule:
+      interval: "weekly"
+    open-pull-requests-limit: 5

@@ -177,16 +177,19 @@ Perché:
 
 ## 🔎 STEP 8 — Security Automation
 
-Obiettivo:
-Monitorare vulnerabilità automaticamente.
+Obiettivo: innalzare il livello di protezione del repository integrando controlli di sicurezza statici sul codice e monitoraggio automatico delle dipendenze.
+
+### 📋 Checklist Operativa
+- [ ] Configurare e attivare **Dependabot** tramite il file `.github/dependabot.yml` per monitorare e aggiornare automaticamente le dipendenze obsolete.
+- [ ] Integrare in pipeline uno scanner SAST leggero (**Semgrep**) focalizzato sull'audit della Content Security Policy (CSP) e del codice JavaScript.
+- [ ] Ottimizzare e blindare le versioni delle GitHub Actions nel workflow per eliminare i warning di deprecazione legati a Node.js.
+
 
 ### 📌 Bussola di Transizione 
 *Tracciamento dei file target e dei relativi passaggi futuri:*
 
-- ⚠️ **Nota per lo Step 8 (Sec Automation):** Valutare l'integrazione in pipeline di uno scanner SAST leggero (es. Semgrep) per fare l'audit della CSP e del codice.
 - [ ] **File Applicativi nella directory `/src`:** Creazione e sviluppo dei file target (`index.html`, `style.css`, `timer.js`) ➔ *Da avviare nella fase applicativa reale (Step 9).*
 - 📂 **Fase Applicativa (Step 9):** Scrittura dell'interfaccia utente, della logica di calcolo e degli Event Listeners in `src/timer.js`.
-- 🗃 **Nota di Archiviazione:** Al completamento e alla stabilizzazione dello Step 8, i file `src/todo.md`, `test/todo.md` e `.github/workflows/todo.md` verranno spostati in `docs/archive/`.
 
 Azioni:
 - abilitare Dependabot
@@ -196,7 +199,12 @@ Azioni:
 Perché:
 - sicurezza continua
 - aggiornamenti automatici
+### 📌 Bussola di Transizione 
+*Tracciamento dei file target e dei relativi passaggi futuri:*
 
+- [ ] **File Applicativi nella directory `/src`:** Creazione e sviluppo dei file target (`index.html`, `style.css`, `timer.js`) ➔ *Da avviare nella fase applicativa reale (Step 9).*
+- 📂 **Fase Applicativa (Step 9):** Scrittura dell'interfaccia utente, della logica di calcolo e degli Event Listeners in `src/timer.js`.
+- 🗃 **Nota di Archiviazione:** Al completamento e alla stabilizzazione dello Step 9, i file `src/todo.md`, `test/todo.md` e `.github/workflows/todo.md` verranno spostati in `docs/archive/`.
 ---
 
 ## 📱 STEP 9 — Implementazione Timer
