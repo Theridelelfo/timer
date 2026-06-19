@@ -24,6 +24,11 @@ jobs:
   pipeline:
     runs-on: ubuntu-latest
 
+    # 🎛️ Configurazione della Matrice di Test
+    strategy:
+      matrix:
+        node-version: [22, 24] # Farà girare due job paralleli, uno per la 22 e uno per la 24
+
     steps:
     # 1. Inizializzazione Ambiente
     - name: Checkout del codice

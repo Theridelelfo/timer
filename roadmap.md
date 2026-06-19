@@ -149,7 +149,7 @@ Perché:
 - **Qualità Continua:** Intercetta i bug strutturali e le regressioni logiche prima che raggiungano il server di produzione.
 - **Fail-Fast:** Isola gli errori nei primi stadi dell'esecuzione (es. lint/audit) risparmiando tempo di computazione sul cloud.
 
-## 🚀 STEP 7 — CD (Continuous Deployment)
+## ✅🚀 STEP 7 — CD (Continuous Deployment)
 
 Obiettivo:
 Rilascio e pubblicazione automatica dell'applicazione web sul server di produzione solo al superamento dei cancelli di controllo.
