@@ -152,7 +152,7 @@ Perché:
 ## ✅🚀 STEP 7 — CD (Continuous Deployment)
 
 Obiettivo:
-Rilascio e pubblicazione automatica dell'applicazione web sul server di produzione solo al superamento dei cancelli di controllo.
+Rilascio e pubblicazione automatica dell'applicazione web sul server di Finalizzazione (GitHub Pages) solo al superamento dei cancelli di controllo, isolando il processo dal flusso di integrazione.
 
 ### 📋 Checklist Operativa
 - [x] Abilitare l'utilizzo di "GitHub Actions" come sorgente di build nel pannello Settings del repository.
@@ -160,18 +160,19 @@ Rilascio e pubblicazione automatica dell'applicazione web sul server di produzio
 - [x] Integrare la fase di isolamento e caricamento dell'artefatto focalizzata sulla sola cartella `./src`.
 - [x] Implementare lo step finale di deploy per rendere l'applicazione accessibile pubblicamente online.
 - [x] Configurazione del Deployment automatico (estrazione, isolamento e archiviazione tramite comando `tar` della cartella `src/` nella root del server web).
-- [x] Mantenere l'ambiente dei runner forzato su Node 24 (`FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true`) per scudare la pipeline dall'obsolescenza strutturale delle azioni di terze parti e di GitHub stesso.
+- [x] Riorganizzare l'architettura della pipeline scindendo i Job: un job parallelo in Matrix (node 22 e 24)per la CI (`test-and-lint`) e un job atomico sequenziale per la CD (`deploy`), vincolato dalla direttiva `needs`.
 
 Strumenti Utilizzati:
-- GitHub Actions Environment (Azioni ufficiali: `configure-pages@v5`, `upload-pages-artifact@v4`, `deploy-pages@v4`).
+- GitHub Actions Environment (`checkout@v5`, `setup-node@v6`, `configure-pages@v6`, `upload-pages-artifact@v5`, `deploy-pages@v5`).
 
 Trigger e Vincoli di Esecuzione:
-- **Innesco:** Comandi di `push` (o merge approvati) verso il ramo `main`.
-- **Condizione di Sicurezza:** Il deployment si attiva esclusivamente se i tre cancelli precedenti (Linting ➔ Security Audit ➔ Testing) restituiscono esito verde.
+- **Innesco:** Comandi di `push` (o merge approvati) verso il ramo protetto `main`.
+- **Condizione di Sicurezza:** Il deployment si attiva in modo asincrono esclusivamente se l'intero array della Matrix del job di verifica (`test-and-lint` su Node 22 e Node 24) restituisce esito verde.
+- **Ambiente protetto:** Blocco automatico dei tentativi di deploy generati da rami di test o Pull Request esterne (Environment Protection Rules).
 
 Perché:
 - **Zero Overhead:** Elimina completamente i rilasci manuali e i rischi di disallineamento tra locale e produzione.
-- **Infrastruttura Conclusa:** Chiude il ciclo DevOps fondamentale, creando una pipeline integrata e sicura al 100%.
+- **Architettura Conclusa:** Divide nettamente le responsabilità (Separation of Concerns) tra la fase di validazione del codice e la fase di pubblicazione, azzerando le Race Condition.
 
 ---
 
@@ -180,25 +181,20 @@ Perché:
 Obiettivo: innalzare il livello di protezione del repository integrando controlli di sicurezza statici sul codice e monitoraggio automatico delle dipendenze.
 
 ### 📋 Checklist Operativa
-- [ ] Configurare e attivare **Dependabot** tramite il file `.github/dependabot.yml` per monitorare e aggiornare automaticamente le dipendenze obsolete.
-- [ ] Integrare in pipeline uno scanner SAST leggero (**Semgrep**) focalizzato sull'audit della Content Security Policy (CSP) e del codice JavaScript.
-- [ ] Ottimizzare e blindare le versioni delle GitHub Actions nel workflow per eliminare i warning di deprecazione legati a Node.js.
+- [x] Configurare e attivare **Dependabot** tramite il file `.github/dependabot.yml` per monitorare e aggiornare automaticamente le dipendenze obsolete (npm e GitHub Actions).
+- [x] Ottimizzare e blindare le versioni delle GitHub Actions nel workflow (`@v5` / `@v6`) per eliminare i warning di deprecazione legati a Node.js nei runner.
+- [x] Sincronizzare i presidi di sicurezza integrando il controllo delle vulnerabilità del runtime (`npm audit`) come cancello vincolante nel job di validazione.
+- [ ] Integrare in pipeline uno scanner SAST leggero (**Semgrep**) focalizzato sull'audit della Content Security Policy (CSP) e sulla prevenzione di falle logiche nel codice JavaScript sorgente.
 
-
-### 📌 Bussola di Transizione 
-*Tracciamento dei file target e dei relativi passaggi futuri:*
-
-- [ ] **File Applicativi nella directory `/src`:** Creazione e sviluppo dei file target (`index.html`, `style.css`, `timer.js`) ➔ *Da avviare nella fase applicativa reale (Step 9).*
-- 📂 **Fase Applicativa (Step 9):** Scrittura dell'interfaccia utente, della logica di calcolo e degli Event Listeners in `src/timer.js`.
-
-Azioni:
-- abilitare Dependabot
-- attivare npm audit in pipeline
-- (opzionale) CodeQL
+Azioni Correnti:
+- [x] Abilitare e calibrare i limiti di Pull Request di Dependabot.
+- [x] Garantire l'esecuzione di `npm audit` bloccante per vulnerabilità con severity High o superiore.
+- [ ] Configurare il workflow per l'esecuzione automatica di Semgrep.
 
 Perché:
-- sicurezza continua
-- aggiornamenti automatici
+- **Sicurezza Continua:** Intercetta le vulnerabilità delle librerie prima che raggiungano la produzione, abbattendo il debito tecnico in background.
+- **Integrità del Codice:** L'analisi statica garantisce che le regole di sviluppo e le policy di sicurezza (come la CSP) siano rispettate prima del rilascio.
+
 ### 📌 Bussola di Transizione 
 *Tracciamento dei file target e dei relativi passaggi futuri:*
 
