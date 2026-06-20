@@ -1,0 +1,32 @@
+name: Controllo di Sicurezza Statica (SAST)
+
+on:
+  push:
+    branches: [ main ]
+    paths-ignore:
+      - '**.md'
+      - 'docs/**'
+  pull_request:
+    branches: [ main ]
+    paths-ignore:
+      - '**.md'
+      - 'docs/**'
+
+jobs:
+  semgrep-scan:
+    name: Scansione Semgrep Nativa
+    runs-on: ubuntu-latest
+
+    # Container Docker ufficiale di Semgrep (Stabile e aggiornato)
+    container:
+      image: returntocorp/semgrep
+
+    steps:
+      # 1. Recupero del codice (Richiede l'azione ufficiale)
+      - name: Checkout del codice
+        uses: actions/checkout@v6
+
+      # 2. Esecuzione del comando nativo CLI dentro il container
+      - name: Run Semgrep CLI
+        run: |
+          semgrep scan --config=p/default --config=p/javascript --config=p/owasp-top-10 --error
