@@ -42,7 +42,19 @@ jobs:
       - name: Cancello 3 - Test Unitari (Vitest)
         run: npm run test:run
 
-  # 🚀 JOB 2: Continuous Deployment (Rilascio su Pages)
+ # 🛡️ JOB 2: Sicurezza Statica (Semgrep)
+  semgrep-sast:
+    runs-on: ubuntu-latest
+    container:
+      image: returntocorp/semgrep
+    steps:
+      - name: Checkout del codice
+        uses: actions/checkout@v6
+      - name: Run Semgrep CLI
+        run: semgrep scan --config=p/default --config=p/javascript --error
+
+
+ # 🚀 JOB 2: Continuous Deployment (Rilascio su Pages)
   deploy:
     runs-on: ubuntu-latest
     needs: test-and-lint # ⚠️ CRITICO: Parte SOLO se la matrice del Job 1 è tutta VERDE
@@ -57,7 +69,7 @@ jobs:
 
     steps:
       - name: Checkout del codice
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
 
       - name: Configurazione Node.js (Fissa sulla nostra produzione)
         uses: actions/setup-node@v6
