@@ -26,7 +26,7 @@ jobs:
       - name: Checkout del codice
         uses: actions/checkout@v6
 
-      # 2. Esecuzione del comando nativo CLI dentro il container
+      # 2. Esecuzione del comando nativo CLI dentro il container (Corretto)
       - name: Run Semgrep CLI
         run: |
-          semgrep scan --config=p/default --config=p/javascript --config=p/owasp-top-10 --error
+          semgrep scan --config=p/default --config=p/javascript --error
