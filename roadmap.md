@@ -163,7 +163,7 @@ Rilascio e pubblicazione automatica dell'applicazione web sul server di Finalizz
 - [x] Riorganizzare l'architettura della pipeline scindendo i Job: un job parallelo in Matrix (node 22 e 24)per la CI (`test-and-lint`) e un job atomico sequenziale per la CD (`deploy`), vincolato dalla direttiva `needs`.
 
 Strumenti Utilizzati:
-- GitHub Actions Environment (`checkout@v5`, `setup-node@v6`, `configure-pages@v6`, `upload-pages-artifact@v5`, `deploy-pages@v5`).
+- GitHub Actions Environment (`checkout@v6`, `setup-node@v6`, `configure-pages@v6`, `upload-pages-artifact@v5`, `deploy-pages@v5`).
 
 Trigger e Vincoli di Esecuzione:
 - **Innesco:** Comandi di `push` (o merge approvati) verso il ramo protetto `main`.
@@ -184,12 +184,12 @@ Obiettivo: innalzare il livello di protezione del repository integrando controll
 - [x] Configurare e attivare **Dependabot** tramite il file `.github/dependabot.yml` per monitorare e aggiornare automaticamente le dipendenze obsolete (npm e GitHub Actions).
 - [x] Ottimizzare e blindare le versioni delle GitHub Actions nel workflow (`@v5` / `@v6`) per eliminare i warning di deprecazione legati a Node.js nei runner.
 - [x] Sincronizzare i presidi di sicurezza integrando il controllo delle vulnerabilità del runtime (`npm audit`) come cancello vincolante nel job di validazione.
-- [ ] Integrare in pipeline uno scanner SAST leggero (**Semgrep**) focalizzato sull'audit della Content Security Policy (CSP) e sulla prevenzione di falle logiche nel codice JavaScript sorgente.
+- [x] Integrare in pipeline uno scanner SAST leggero (**Semgrep**) focalizzato sull'audit della Content Security Policy (CSP) e sulla prevenzione di falle logiche nel codice JavaScript sorgente.
 
 Azioni Correnti:
 - [x] Abilitare e calibrare i limiti di Pull Request di Dependabot.
 - [x] Garantire l'esecuzione di `npm audit` bloccante per vulnerabilità con severity High o superiore.
-- [ ] Configurare il workflow per l'esecuzione automatica di Semgrep.
+- [x] Configurare il workflow per l'esecuzione automatica di Semgrep.
 
 Perché:
 - **Sicurezza Continua:** Intercetta le vulnerabilità delle librerie prima che raggiungano la produzione, abbattendo il debito tecnico in background.
