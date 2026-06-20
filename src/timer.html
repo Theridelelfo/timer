@@ -8,12 +8,40 @@
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self';">
     
     <link rel="stylesheet" href="style.css">
+    
     <script type="module" src="timer.js" defer></script>
 </head>
 <body>
-    <main>
+    <main class="timer-container">
+        <nav class="navigation">
+            <a href="index.html" class="back-link">← Torna alla Info Index</a>
+        </nav>
+
         <h1>Timer di Sicurezza</h1>
-        <div id="timer-display">00:00</div>
+        
+        <div id="timer-display" aria-live="polite">01:00</div>
+
+        <div class="control-panel">
+            <div class="control-group">
+                <h2>Minuti</h2>
+                <div class="button-row">
+                    <button type="button" id="btn-min-minus" class="btn-adjust" aria-label="Togli un minuto">-</button>
+                    <button type="button" id="btn-min-plus" class="btn-adjust" aria-label="Aggiungi un minuto">+</button>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <h2>Secondi</h2>
+                <div class="button-row">
+                    <button type="button" id="btn-sec-minus" class="btn-adjust" aria-label="Togli un secondo">-</button>
+                    <button type="button" id="btn-sec-plus" class="btn-adjust" aria-label="Aggiungi un secondo">+</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="action-panel">
+            <button type="button" id="btn-main-action" class="btn-main">AVVIA</button>
+        </div>
     </main>
 </body>
 </html>
