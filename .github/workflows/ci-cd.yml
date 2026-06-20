@@ -3,8 +3,14 @@ name: Pipeline di CI/CD e Sicurezza
 on:
   push:
     branches: [ main ]
+    paths-ignore:
+      - '**.md'                # Ignora qualsiasi file Markdown nel repository
+      - 'docs/**'              # Ignora qualsiasi file dentro una eventuale cartella docs
   pull_request:
     branches: [ main ]
+    paths-ignore:
+      - '**.md'
+      - 'docs/**'
 
 jobs:
   # 🧪 JOB 1: Continuous Integration (Verifica e Test)
@@ -16,7 +22,7 @@ jobs:
 
     steps:
       - name: Checkout del codice
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
 
       - name: Configurazione Node.js
         uses: actions/setup-node@v6
