@@ -1,0 +1,332 @@
+/**
+ * DevSecOps Timer - Foglio di Stile Professionale
+ * Ottimizzato per: Mobile-First, Tablet, Desktop, Orientamento Dinamico
+ * Accessibilità: WCAG AA Compliant, Contrasto Elevato, Focus Ring inclusivi
+ */
+
+/* ==========================================
+   1. VARIABILI E DESIGN TOKENS
+   ========================================== */
+:root {
+  /* Palette Colori - Blu di sicurezza e Sfondo scuro profondo (Soft Black per evitare affaticamento visivo) */
+  --color-bg: #0a0a0c;
+  --color-surface: #16161a;
+  --color-text-main: #f3f4f6;
+  --color-text-muted: #9ca3af;
+  
+  /* Colori d'Azione (Blu con contrasto minimo 4.5:1 per WCAG AA) */
+  --color-primary: #2563eb;       /* Blu vivido primario */
+  --color-primary-hover: #3b82f6; /* Blu più chiaro per lo stato hover */
+  --color-primary-active: #1d4ed8;/* Blu scuro per lo stato di pressione */
+  
+  /* Feedback e Stati (Accessibilità inclusiva) */
+  --color-focus: #fbbf24;         /* Giallo ambra ad altissima visibilità per focus tastiera */
+  --color-danger: #ef4444;        /* Rosso per stato di allarme */
+
+  /* Tipografia Fluida (utilizza clamp per adattarsi automaticamente alla larghezza dello schermo) */
+  --font-display: clamp(4rem, 18vw, 9rem);
+  --font-title: clamp(1.5rem, 5vw, 2.5rem);
+  --font-body: clamp(1rem, 3vw, 1.25rem);
+  
+  /* Transizioni */
+  --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ==========================================
+   2. RESET E IMPOSTAZIONI DI BASE
+   ========================================== */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background-color: var(--color-bg);
+  color: var(--color-text-main);
+  min-height: 100vh;
+  min-height: 100dvh; /* Dynamic Viewport Height per dispositivi mobili */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden; /* Impedisce lo scrolling indesiderato */
+}
+
+/* ==========================================
+   3. LAYOUT CONTAINER (Mobile-First)
+   ========================================== */
+.timer-container {
+  width: 100%;
+  max-width: 600px;
+  min-height: 100vh;
+  min-height: 100dvh;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Distribuisce equamente gli elementi nello spazio */
+  align-items: center;
+  text-align: center;
+}
+
+/* ==========================================
+   4. NAVIGAZIONE E LINK (Omogeneizzazione)
+   ========================================== */
+.navigation {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  padding-bottom: 1rem;
+}
+
+/* Allineamento estetico tra Link e Pulsanti */
+.back-link {
+  color: var(--color-text-muted);
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+  padding: 0.5rem 0.75rem;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  transition: var(--transition-fast);
+}
+
+.back-link:hover, .back-link:focus {
+  color: var(--color-text-main);
+  background-color: var(--color-surface);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+/* ==========================================
+   5. INTESTAZIONE E TITOLO
+   ========================================== */
+h1 {
+  font-size: var(--font-title);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  color: var(--color-text-main);
+  margin-top: 0.5rem;
+}
+
+/* ==========================================
+   6. DISPLAY CENTRALE (Dimensioni Generose)
+   ========================================== */
+#timer-display {
+  font-size: var(--font-display);
+  font-weight: 800;
+  font-variant-numeric: tabular-nums; /* Impedisce ai numeri di "saltare" durante il conteggio */
+  line-height: 1;
+  letter-spacing: -0.05em;
+  margin: auto 0; /* Spinge via il display per mantenerlo perfettamente centrato */
+  transition: color var(--transition-fast);
+  user-select: none;
+}
+
+/* ==========================================
+   7. PANNELLI DI CONTROLLO (Regolazione)
+   ========================================== */
+.control-panel {
+  width: 100%;
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.control-group {
+  flex: 1;
+  background-color: var(--color-surface);
+  padding: 1rem;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.control-group h2 {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-text-muted);
+  margin-bottom: 0.75rem;
+}
+
+.button-row {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: center;
+}
+
+/* ==========================================
+   8. COMPONENTI PULSANTI (Pianificazione Ergonomia)
+   ========================================== */
+
+/* Pulsanti di regolazione (+ e -) */
+.btn-adjust {
+  flex: 1;
+  min-width: 52px;  /* Sicurezza: Superiore al target mobile di 48px */
+  min-height: 52px; /* Sicurezza: Superiore al target mobile di 48px */
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--color-text-main);
+  font-size: 1.5rem;
+  font-weight: 600;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: var(--transition-fast);
+  touch-action: manipulation; /* Elimina il delay di 300ms del doppio tocco su Safari */
+}
+
+.btn-adjust:hover {
+  background-color: rgba(255, 255, 255, 0.12);
+  border-color: var(--color-primary-hover);
+}
+
+.btn-adjust:active {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Grande Pulsante Principale (AVVIA / PAUSA) */
+.action-panel {
+  width: 100%;
+  margin-bottom: 1.5rem;
+}
+
+.btn-main {
+  width: 100%;
+  max-width: 320px;
+  min-height: 64px; /* Dimensione estremamente generosa ed ergonomica */
+  background-color: var(--color-primary);
+  border: 2px solid transparent;
+  color: #ffffff;
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  border-radius: 50px; /* Forma a pillola per differenziarsi dai tasti quadri */
+  cursor: pointer;
+  transition: var(--transition-fast);
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
+  touch-action: manipulation;
+}
+
+.btn-main:hover {
+  background-color: var(--color-primary-hover);
+  box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
+}
+
+.btn-main:active {
+  background-color: var(--color-primary-active);
+  transform: scale(0.98); /* Feedback fisico di compressione */
+}
+
+/* ==========================================
+   9. ACCESSIBILITÀ STRUTTURALE (WCAG AA)
+   ========================================== */
+
+/* Gestione Focus Ring ad alta visibilità (Indispensabile per utenti che usano tastiere/switch) */
+button:focus-visible, a:focus-visible {
+  outline: 3px solid var(--color-focus);
+  outline-offset: 3px;
+}
+
+/* Allarme Visivo non basato solo sul Colore */
+/* Oltre a diventare rosso, il display trema o pulsa per utenti daltonici (Protanopia/Deuteranopia) */
+@keyframes pulse-alert {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); text-shadow: 0 0 20px var(--color-danger); }
+  100% { transform: scale(1); }
+}
+
+.alarm-active {
+  color: var(--color-danger) !important;
+  animation: pulse-alert 0.5s ease-in-out infinite;
+}
+
+/* ==========================================
+   10. MEDIA QUERIES DI ORIENTAMENTO (Dinamicità)
+   ========================================== */
+
+/* OTTIMIZZAZIONE PER ORIENTAMENTO ORIZZONTALE (Landscape) SU MOBILE/TABLET COMPATTI */
+@media (orientation: landscape) and (max-height: 520px) {
+  body {
+    overflow-y: auto; /* Permette lo scroll solo se lo schermo è davvero minuscolo */
+  }
+
+  .timer-container {
+    min-height: 100vh;
+    padding: 0.75rem 1.5rem;
+    display: grid;
+    grid-template-columns: 1.2fr 1fr; /* Dividiamo lo spazio in due colonne */
+    grid-template-rows: auto 1fr;
+    gap: 1rem;
+    align-items: center;
+  }
+
+  .navigation {
+    grid-column: 1 / span 2;
+    padding-bottom: 0;
+  }
+
+  h1 {
+    display: none; /* Nascondiamo il titolo in landscape per salvare prezioso spazio verticale */
+  }
+
+  #timer-display {
+    grid-column: 1;
+    font-size: clamp(3rem, 25vh, 6rem); /* Ridimensionamento proporzionale dello schermo */
+    margin: 0;
+    align-self: center;
+  }
+
+  .control-panel {
+    grid-column: 2;
+    flex-direction: column; /* I due gruppi (Min/Sec) si impilano verticalmente sulla destra */
+    gap: 0.5rem;
+    margin-bottom: 0;
+  }
+
+  .control-group {
+    padding: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
+  .control-group h2 {
+    margin-bottom: 0;
+  }
+
+  .button-row {
+    gap: 0.5rem;
+  }
+
+  .btn-adjust {
+    min-width: 44px;
+    min-height: 44px;
+    font-size: 1.25rem;
+  }
+
+  .action-panel {
+    grid-column: 1 / span 2; /* Il pulsante AVVIA rimane esteso in fondo al centro */
+    margin-bottom: 0.25rem;
+  }
+
+  .btn-main {
+    max-width: 100%;
+    min-height: 52px;
+  }
+}
+
+/* OTTIMIZZAZIONE TABLET (Schermi Grandi) */
+@media (min-width: 768px) {
+  .timer-container {
+    padding: 3rem;
+  }
+  
+  .control-group {
+    padding: 1.5rem;
+  }
+  
+  .button-row {
+    gap: 1.25rem;
+  }
+}
