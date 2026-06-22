@@ -176,7 +176,7 @@ Perché:
 
 ---
 
-## 🔎 STEP 8 — Security Automation
+## ✅🔎 STEP 8 — Security Automation
 
 Obiettivo: innalzare il livello di protezione del repository integrando controlli di sicurezza statici sul codice e monitoraggio automatico delle dipendenze.
 
@@ -185,8 +185,6 @@ Obiettivo: innalzare il livello di protezione del repository integrando controll
 - [x] Ottimizzare e blindare le versioni delle GitHub Actions nel workflow (`@v5` / `@v6`) per eliminare i warning di deprecazione legati a Node.js nei runner.
 - [x] Sincronizzare i presidi di sicurezza integrando il controllo delle vulnerabilità del runtime (`npm audit`) come cancello vincolante nel job di validazione.
 - [x] Integrare in pipeline uno scanner SAST leggero (**Semgrep**) focalizzato sull'audit della Content Security Policy (CSP) e sulla prevenzione di falle logiche nel codice JavaScript sorgente.
-
-Azioni Correnti:
 - [x] Abilitare e calibrare i limiti di Pull Request di Dependabot.
 - [x] Garantire l'esecuzione di `npm audit` bloccante per vulnerabilità con severity High o superiore.
 - [x] Configurare il workflow per l'esecuzione automatica di Semgrep.
@@ -195,15 +193,17 @@ Perché:
 - **Sicurezza Continua:** Intercetta le vulnerabilità delle librerie prima che raggiungano la produzione, abbattendo il debito tecnico in background.
 - **Integrità del Codice:** L'analisi statica garantisce che le regole di sviluppo e le policy di sicurezza (come la CSP) siano rispettate prima del rilascio.
 
+
+---
+
+## 📱 STEP 9 — Implementazione Timer
+
 ### 📌 Bussola di Transizione 
 *Tracciamento dei file target e dei relativi passaggi futuri:*
 
 - [ ] **File Applicativi nella directory `/src`:** Creazione e sviluppo dei file target (`index.html`, `style.css`, `timer.js`) ➔ *Da avviare nella fase applicativa reale (Step 9).*
 - 📂 **Fase Applicativa (Step 9):** Scrittura dell'interfaccia utente, della logica di calcolo e degli Event Listeners in `src/timer.js`.
 - 🗃 **Nota di Archiviazione:** Al completamento e alla stabilizzazione dello Step 9, i file `src/todo.md`, `test/todo.md` e `.github/workflows/todo.md` verranno spostati in `docs/archive/`.
----
-
-## 📱 STEP 9 — Implementazione Timer
 
 Obiettivo:
 Scrivere l'applicazione reale rispettando le regole definite.
@@ -227,39 +227,3 @@ Esempi:
 - nuove funzionalità
 - trasferire i todo.md in una directory d'archivio
 ---
-
-# 📊 Obiettivo finale
-
-Alla fine del percorso avrai:
-
-✅ Pipeline completa CI/CD  
-✅ Testing automatizzato  
-✅ Sicurezza integrata  
-✅ Deploy automatico  
-✅ Architettura pulita  
-
----
-
-# 🧠 Risultato reale
-
-Non avrai solo costruito un timer.
-
-Avrai imparato:
-- come lavora un team moderno
-- come si struttura un progetto professionale
-- come integrare sicurezza e sviluppo
-
----
-
-# 🚀 Metodo di lavoro
-
-Procederemo così:
-
-1. Analisi step
-2. Implementazione guidata
-3. Feedback e dubbi
-4. Iterazione
-
----
-
-👉 Ogni step deve essere **compreso**, non solo eseguito.
