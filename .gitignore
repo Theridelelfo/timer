@@ -1,1 +1,23 @@
+# Sistema
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE / Editor
+.vscode/
+.idea/
+*.swp
+
+# Sicurezza (base)
+.env
+.env.local
+
+# Log
+*.log
+npm-debug.log*
+
+# Cache
+.eslintcache
+
+# Dipendenze
 node_modules/
