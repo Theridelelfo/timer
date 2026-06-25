@@ -1,45 +1,26 @@
-# 🛠 DevSecOps Learning Path — Timer Web App
-
-## 🎯 Obiettivo
-Questo progetto non nasce per costruire un semplice timer, ma per imparare a progettare e gestire un ambiente **DevSecOps completo** su un'applicazione minimale.
-
-L'obiettivo è acquisire:
-- Mentalità DevOps
-- Integrazione della sicurezza (DevSecOps)
-- Automazione CI/CD
-- Qualità del codice e testing
-
----
-
-# 🧠 Principi guida
-
-## 1. Shift Left
-La qualità e la sicurezza vengono introdotte **prima**, non alla fine.
-
-## 2. Automazione
-Tutto ciò che può essere automatizzato **deve essere automatizzato**.
-
-## 3. Fail Fast
-Gli errori devono emergere subito (build fallita > bug in produzione).
-
-## 4. Everything as Code
-Configurazioni, pipeline e regole vivono nel repository.
-
----
-
 # 🧱 Roadmap degli Step
 
 ---
 
 ## ✅ STEP 0 — Repository base (COMPLETATO)
 
-Obiettivo:
-- Creare il repository GitHub
+**Obiettivo:**
+Inizializzare il repository con i file essenziali e un ambiente di sviluppo pronto, minimale e coerente con un workflow DevOps.
 
-Checklist:
-- [x] README.md
-- [x] LICENSE
-- [x] .gitignore (Node consigliato)
+### 📋 Checklist Operativa
+
+- [x] Creazione repository su GitHub
+- [x] Inserimento LICENSE (MIT)
+- [x] Creazione README.md (Obiettivo e Principi Guida)
+- [x] Creazione roadmap.md
+- [x] Configurazione .gitignore
+- [x] Attivazione ambiente GitHub Codespaces
+
+### Perché
+
+- Garantisce una base pulita e versionata per il progetto
+- Evita il versionamento di file inutili o sensibili (es. dipendenze, cache)
+- Permette di lavorare da subito in un ambiente replicabile e coerente
 
 ---
 
