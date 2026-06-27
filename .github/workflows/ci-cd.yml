@@ -59,7 +59,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: [test-and-lint, semgrep-sast] # ⚠️ CRITICO: Ora attende che ENTRAMBI siano verdi
     if: github.event_name == 'push'
-    
+
     permissions:
       pages: write
       id-token: write
