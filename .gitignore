@@ -17,3 +17,6 @@ npm-debug.log*
 # Ignora i file nascosti che i sistemi operativi creano automaticamente nelle cartelle
 .DS_Store
 Thumbs.db
+
+# impostazioni editor
+.vscode/
