@@ -1,6 +1,6 @@
 name: Pipeline di CI/CD e Sicurezza
 
-on:
+"on":
   push:
     branches: [ main ]
     paths-ignore:
