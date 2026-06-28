@@ -27,26 +27,37 @@ Inizializzare il repository con i file essenziali e un ambiente di sviluppo pron
 ## ✅ STEP 1 — Struttura progetto
 
 Obiettivo:
-Definire un'organizzazione chiara del codice.
+Definire l’alberatura delle cartelle del repository utilizzando file placeholder per permettere il versionamento anche in assenza di codice.
 
-Struttura:
+Struttura da creare:
+```
+├── .github/
+│   └── workflows/
+│       └── todo.md
+├── src/
+│   └── todo.md
+├── test/
+│   └── todo.md
+└── docs/
+    └── archive/
+        └── todo.md
 
-src/
-- index.html
-- style.css
-- script.js
+```
 
-test/
-- timer.test.js
+### 📋 Checklist Operativa
 
-.github/workflows/
+- [ ] Creare la cartella `src/`
+- [ ] Creare la cartella `test/`
+- [ ] Creare la cartella `.github/workflows/`
+- [ ] Creare la cartella `docs/archive/`
+- [ ] Inserire un file `.gitkeep` in ogni cartella
 
-package.json
+### Perché
 
-Perché:
-- Separazione responsabilità
-- Facilita testing e manutenzione
-- Base per CI/CD
+- Git traccia solo file, non cartelle: i placeholder permettono di versionare la struttura
+- Favorisce una chiara separazione delle responsabilità
+- Migliora organizzazione, testing e manutenzione
+- Prepara la base per CI/CD e sviluppo scalabile
 
 ---
 
